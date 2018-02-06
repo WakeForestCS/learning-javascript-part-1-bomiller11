@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Guess my number!!</title>
+</head>
+
+<body>
+  <h1>I have thought of a number 1-10...</h1>
+
+  <h2>...can you guess it?</h2>
+
+  <form id="frm1" action="/action_page.php">
+    Your guess: <input type="text" id="input1" name="guess"><br><br>
+    <input type="button" onclick="myFunction()" value="Submit">
+  </form>
+
+  <p id="answer"></p>
+
+</body>
+
+<script>
+
+var myVar = 7;
+var userVar = 0;
+
+function myFunction() {
+  userVar = document.getElementById("input1").value;
+  if (userVar == myVar) {
+    playGame(userVar, done);
+  }
+  else {
+    playGame(userVar);
+  }
+}
+
+function playGame(guess, callback) {
+  if (myVar < userVar) {
+    document.getElementById("answer").innerHTML = "Lower...";
+  }
+
+  else if (myVar > userVar) {
+    document.getElementById("answer").innerHTML = "Higher...";
+  }
+
+  callback();
+}
+
+function done() {
+  document.getElementById("answer").innerHTML = "You guessed the number!";
+}
+
+</script>
+
+
+</html>
